@@ -1,12 +1,31 @@
-import React from 'react';
-import './App.css';
+import PurchaseHistory from '../purchase-history/PurchaseHistory';
+import PurchaseDetail from '../purchase-detail/PurchaseDetail';
+// import { AppProvider } from '../../data/context';
+import { Route, Routes } from 'react-router-dom';
 
-function App() {
+
+
+function App() { 
   return (
-    <h1 className="text-3xl font-bold underline text-red-600">
-      Simple React Typescript Tailwind Sample
-    </h1>
-  );  
+    
+      <div className='flex flex-col w-screen h-screen p-4'>
+        <Routes>
+          <Route path='/' element={<PurchaseHistory />} />
+          <Route path='/details' element={<PurchaseDetail />} />
+        </Routes>
+      </div>
+   
+  ); 
+  // return (
+  //   {/*<AppProvider>*/}
+  //     <div className='flex flex-col w-screen h-screen p-4'>
+  //       <Routes>
+  //         <Route path='/' element={<PurchaseHistory />} />
+  //         <Route path='/details' element={<PurchaseDetail />} />
+  //       </Routes>
+  //     </div>
+  //   {/* </AppProvider> */}
+  // );  
 }
 
 export default App;
