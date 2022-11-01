@@ -36,6 +36,7 @@ npm start
 ```
 npm run test
 ```
+- Go to http://localhost:3000/
 
 ## 5. Start visual testing using StoryBook
 
