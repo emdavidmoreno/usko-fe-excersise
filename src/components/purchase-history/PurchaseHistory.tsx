@@ -6,6 +6,7 @@ import PurchaseList from '../purchase-list/PurchaseList';
 import Summary from '../summary/Summary';
 
 import purchases from '../../mock-data/purchases.json'
+import { SingleValue } from 'react-select';
 
 const PurchaseHistory: FC = () => {
 
@@ -24,6 +25,12 @@ const PurchaseHistory: FC = () => {
     }, 0);
     return `$${totalSpent.toFixed(2)}`
   } 
+
+  const changeSorting = (option: SingleValue<{
+      value: string;
+      label: string;
+  }>): void => {}
+
   return (
     <div className="flex flex-col w-full">
        <h1 className="flex mx-auto text-2xl font-bold h-12">Purchase history</h1>
@@ -33,7 +40,7 @@ const PurchaseHistory: FC = () => {
         rightLabel={'Total Spent: '}
         rightValue={getTotalPurchaseSpent()}
       />
-      <PurchaseFilter />
+      <PurchaseFilter changeSorting={changeSorting} sortBy={'date_asc'} />
       <PurchaseList purchases={purchases} />
     </div>
   );
