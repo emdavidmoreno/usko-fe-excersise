@@ -45,3 +45,7 @@ npm run storybook
 ```
 
 - Go to http://localhost:6006/
+
+## Developer notes
+
+- Project is not fully tested. It just shows examples of how to unit test functions and React Components using Jest, and how to vissualy test React Components using Storybook
