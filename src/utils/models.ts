@@ -6,3 +6,15 @@ export interface Purchase {
   unit_price: string,
   quantity: string,
 }
+
+export interface InitialStateType {
+  purchases: Purchase[],
+  sortBy: string,
+  selected: Purchase | null,
+  page: number,
+}
+
+export interface Action {
+  type: string,
+  payload: any,
+}
