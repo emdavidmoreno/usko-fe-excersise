@@ -1,11 +1,7 @@
 import { FC } from "react";
+import { SummaryProps } from "../../utils/models";
 
-interface SummaryProps {
-  leftLabel: string,
-  leftValue: string,
-  rightLabel: string,
-  rightValue: string,
-};
+
 
 const Summary: FC<SummaryProps> = ({ leftLabel, leftValue, rightLabel, rightValue }) => {
   return(

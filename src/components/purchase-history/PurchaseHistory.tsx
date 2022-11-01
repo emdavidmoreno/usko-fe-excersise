@@ -1,6 +1,7 @@
 import React, { FC, useContext } from 'react';
 import dayjs from 'dayjs';
-import _ from 'underscore'
+import _ from 'underscore';
+import { useNavigate } from "react-router-dom";
 
 import { Purchase } from '../../utils/models';
 import PurchaseFilter from '../purchase-filter/PurchaseFilter';
@@ -35,6 +36,7 @@ const sortingFunctions: TSortingFunctions = {
 
 const PurchaseHistory: FC = () => {
   const {state, dispatch} = useContext(AppContext);
+  const navigate = useNavigate();
   const { purchases } = state
 
   const getFirstPurchaseDate = (): string => {
@@ -81,6 +83,14 @@ const PurchaseHistory: FC = () => {
     })
   }
 
+  const selectPurchase = (purchase:Purchase) => {
+    dispatch({
+      type: ACTIONS.SELECT_PURCHASE,
+      payload: purchase,
+    });
+    navigate('/details');
+  }
+
   const purchasesToDisplay = () => paginatedPurchases(sortedPurchases())
 
 
@@ -98,6 +108,7 @@ const PurchaseHistory: FC = () => {
         sortBy={state.sortBy}
       />
       <PurchaseList 
+        selectPurchase={selectPurchase}
         purchases={purchasesToDisplay()} 
       />
       <NavigationList 

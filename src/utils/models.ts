@@ -18,3 +18,10 @@ export interface Action {
   type: string,
   payload: any,
 }
+
+export interface SummaryProps {
+  leftLabel: string,
+  leftValue: string,
+  rightLabel: string,
+  rightValue: string,
+};

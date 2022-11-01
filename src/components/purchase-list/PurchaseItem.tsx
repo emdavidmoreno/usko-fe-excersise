@@ -1,22 +1,17 @@
 import { FC } from "react";
-import { useNavigate } from "react-router-dom";
 
 import { Purchase } from "../../utils/models";
 import { getReadableDate, truncateString } from "../../utils/functions";
 
 interface PurchaseItemProps {
   item: Purchase,
+  selectPurchase: any,
 }
 
-const PurchaseItem: FC<PurchaseItemProps> = ({item}) => {
-  const navigate = useNavigate();
+const PurchaseItem: FC<PurchaseItemProps> = ({item, selectPurchase}) => {
 
-  const navigateToDetails = () => {
-    // select purchase prior to navigate.
-    navigate('/details');
-  }
   return (
-    <div className="flex w-full justify-between px-2 py-4" onClick={navigateToDetails}>
+    <div className="flex w-full justify-between px-2 py-4" onClick={selectPurchase}>
       <img className="w-12 h-12 rounded-full" src={item.image_url} alt="" />
       <div className="w-full flex-col mx-2">
         <span className="flex w-full text-xs mx-2 text-gray-600">{truncateString(item.title)}</span>
