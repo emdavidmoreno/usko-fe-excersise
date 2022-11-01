@@ -45,6 +45,7 @@ npm run storybook
 ```
 
 - Go to http://localhost:6006/
+- set browser with a mobile view for beter look and feel. This is designed as mobile app.
 
 ## Developer notes
 
