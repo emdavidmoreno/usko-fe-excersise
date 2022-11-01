@@ -1,5 +1,7 @@
-import { FC } from 'react';
+import { FC, useContext, useEffect } from 'react';
 import Select, {SingleValue} from 'react-select';
+import { AppContext } from '../../data/context';
+import { ACTIONS } from '../../utils/constants';
 
 interface PurchaseFilterProps {
   changeSorting: (option: SingleValue<{
@@ -18,7 +20,16 @@ const options = [
   { value: 'unit_price_desc', label: 'Purchase price desc' },
 ]
 
-const PurchaseFilter: FC<PurchaseFilterProps> = ({changeSorting, sortBy}) => {    
+const PurchaseFilter: FC<PurchaseFilterProps> = ({changeSorting, sortBy}) => {
+  const {state, dispatch} = useContext(AppContext);
+  
+  useEffect(() => {
+   dispatch({
+    type: ACTIONS.CHANGE_PAGE,
+    payload: 0,
+   })
+    
+  }, [state.sortBy]);
   
   return (
     <div className='inline-flex w-full justify-end'>

@@ -1,11 +1,11 @@
-import React, { createContext, FC, ReactElement, useReducer } from "react";
+import React, { createContext, FC, useReducer } from "react";
 import purchases from '../mock-data/purchases.json'
 import { InitialStateType } from "../utils/models";
 import reducer from "./reducer";
 
 const initialState: InitialStateType = {
   purchases,
-  sortBy: 'date_desc',
+  sortBy: 'date_asc',
   selected: null,
   page: 0,
 }
