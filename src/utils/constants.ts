@@ -10,3 +10,12 @@ export const ACTIONS = {
   RESET_SELECTED: 'RESET_SELECTED',
   CHANGE_PAGE: 'CHANGE_PAGE',
 }
+
+export const OPTIONS = [
+  { value: 'date_asc', label: 'Purchase date asc' },
+  { value: 'date_desc', label: 'Purchase date desc' },
+  { value: 'title_asc', label: 'Product name asc' },
+  { value: 'title_desc', label: 'Product name desc' },
+  { value: 'unit_price_asc', label: 'Purchase price asc' },
+  { value: 'unit_price_desc', label: 'Purchase price desc' },
+]
