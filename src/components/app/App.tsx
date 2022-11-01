@@ -3,8 +3,6 @@ import PurchaseDetail from '../purchase-detail/PurchaseDetail';
 import { AppProvider } from '../../data/context';
 import { Route, Routes } from 'react-router-dom';
 
-
-
 function App() { 
    
   return (

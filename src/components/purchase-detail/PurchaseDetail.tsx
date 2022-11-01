@@ -1,21 +1,26 @@
-import React, { FC } from 'react';
+import React, { FC, useContext, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 
 import { Purchase } from '../../utils/models';
 import Summary from '../summary/Summary';
 
-import purchases from '../../mock-data/purchases.json'
-
-const selected = purchases[5]
+import { AppContext } from '../../data/context';
+import { ACTIONS } from '../../utils/constants';
 
 const PurchaseDetail: FC = () => {
+  const {state, dispatch} = useContext(AppContext);
   const navigate = useNavigate();
+  const { selected , purchases } = state
+
+  useEffect(() => {
+    if(!selected) navigateToPurchaseHistory()
+  }, []);
 
   const navigateToPurchaseHistory = () => {
-    // dispatch({
-    //   type: ACTIONS.SELECT_PURCHASE,
-    //   payload: null,
-    // });
+    dispatch({
+      type: ACTIONS.SELECT_PURCHASE,
+      payload: null,
+    });
     navigate('/');
   }
 
@@ -81,7 +86,6 @@ const PurchaseDetail: FC = () => {
             ))}
          </div>
       </div>
-
     </div>
   ): null
 };

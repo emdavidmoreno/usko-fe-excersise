@@ -27,8 +27,7 @@ const PurchaseFilter: FC<PurchaseFilterProps> = ({changeSorting, sortBy}) => {
    dispatch({
     type: ACTIONS.CHANGE_PAGE,
     payload: 0,
-   })
-    
+   })    
   }, [state.sortBy]);
   
   return (
